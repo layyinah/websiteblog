@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<body class="m-10">
+<div class="row justify-content-center">
+
+   <b><u> <strong><center><h1 class="card-title">Blog title : &nbsp;{{det.name}}</h1></center></strong></b></u>
+<div class=" row">
+
+                <center><div class="col-md-6">
+                    <div class="card mb-4 shadow-sm">
+
+                        <center><img src="{{det.img.url}}" width="100%"></center>
+                        </div>
+                </div></center>
+    <div class="col-md-12">
+                        <div class="card-body">
+<!--                            <center><hg4><strong>Blog Title:&nbsp;&nbsp;{{det.name}}</strong></hg4></center>-->
+                            <p class="card-text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{det.desc}}</p>
+
+                        </div>
+    </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+</div>
+</body>
+{% endblock %}

@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- mobile metas -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+<!-- site metas -->
+<title>Cron</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="author" content="">
+<!-- bootstrap css -->
+<link rel="stylesheet" type="text/css" href="{% static 'hom/css/bootstrap.min.css' %}">
+<!-- style css -->
+<link rel="stylesheet" type="text/css" href="{% static 'hom/css/style.css' %}">
+<!-- Responsive-->
+<link rel="stylesheet" href="{% static 'hom/css/responsive.css' %}">
+<!-- fevicon -->
+<link rel="icon" href="{% static 'hom/images/fevicon.png' %}" type="image/gif" />
+<!-- Scrollbar Custom CSS -->
+<link rel="stylesheet" href="{% static 'hom/css/jquery.mCustomScrollbar.min.css' %}">
+<!-- Tweaks for older IEs-->
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+<!-- owl stylesheets -->
+<link rel="stylesheet" href="{% static 'hom/css/owl.carousel.min.css' %}">
+<link rel="stylesheet" href="{% static 'hom/css/owl.theme.default.min.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+
+</head>
+
+<body>
+	<div class="header_main">
+		<div class="container">
+			<div class="logo"><a href="/"><img src="{% static 'hom/images/yy.png' %}"></a></div>
+		</div>
+	</div>
+	</div>
+	<div class="header">
+		<div class="container">
+        <!--  header inner -->
+            <div class="col-sm-12">
+
+                 <div class="menu-area">
+                    <nav class="navbar navbar-expand-lg ">
+                        <!-- <a class="navbar-brand" href="#">Menu</a> -->
+<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                       <i class="fa fa-bars"></i>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav mr-auto">
+                               <li class="nav-item active">
+                                <a class="nav-link" href="/">HOME<span class="sr-only">(current)</span></a> </li>
+                                {% if user.is_authenticated %}
+
+<!--                                 <li class="nav-item active">-->
+<!--                                 <a class="nav-link" href="#">MY BLOG</a></li>-->
+                                <li class="nav-item active">
+                                 <a class="nav-link" href="{% url 'addblog' %}">ADD YOUR BLOG</a></li>
+                                <li class="nav-item active">
+                                <a class="nav-link" href="{% url 'logout' %}">LOGOUT</a></li>
+<!--                                <li class="nav-item active"><h2 style="color:cyan;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;welcome {{user.username}}</h2></li>-->
+                                 {% else %}
+                                <li class="nav-item active">
+                                <a class="nav-link" href="{% url 'register' %}">REGISTER</a></li>
+                               <li class="nav-item active">
+                                <a class="nav-link" href="{% url 'login' %}">LOGIN</a></li>
+                               {% endif %}
+
+<!--      	                        <a class="nav-link" href="contact.html">CONTACT</a></li>-->
+<!--                               <li class="last"><a href="#"><img src="{% static 'hom/images/search-icon.png' %}" alt="icon"></a></li>-->
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+{% block content %}
+{% endblock %}
+</html>

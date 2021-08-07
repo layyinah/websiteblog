@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<body class="m-10">
+
+<div class="row justify-content-center">
+
+       <div class="col-md-10">
+           <div>
+  {% for message in messages %}
+  <center><strong><h4 >{{message}}</h4></strong></center>
+  {% endfor %}
+</div>
+
+
+<form action="register" method="post"enctype="multipart/form-data" class="p-3 shadow">
+  <div class="form-group">
+      {% csrf_token %}
+      <label for="username">&nbsp;&nbsp;<strong>Username :</strong></label>
+    <input type="text"  name="username" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Enter username here">
+<!--    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+  </div><br>
+   <div class="form-group">
+
+       <label for="first_name">&nbsp;&nbsp;<strong>Firstname :</strong></label>
+     <input type="text"   name="first_name"  class="form-control" id="first_name" aria-describedby="emailHelp" placeholder="Enter your firstname">
+
+  </div><br>
+
+    <div class="form-group">
+
+       <label for="last_name">&nbsp;&nbsp;<strong>Lastname :</strong></label>
+     <input type="text"   name="last_name"  class="form-control" id="last_name" aria-describedby="emailHelp" placeholder="Enter your lastname">
+
+  </div><br>
+
+    <div class="form-group">
+
+       <label for="email">&nbsp;&nbsp;<strong>Email :</strong></label>
+     <input type="text"   name="email"  class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter your email">
+
+  </div><br>
+
+  <div class="form-group">
+
+      <label for="password1">&nbsp;&nbsp;<strong>Password :</strong></label>
+    <input type="password"  name="password1" class="form-control" id="password1" aria-describedby="emailHelp" placeholder="type your password">
+
+  </div><br>
+    <div class="form-group">
+
+      <label for="password2">&nbsp;&nbsp;<strong>Confirm Password :</strong></label>
+    <input type="password"  name="password2" class="form-control" id="password2" aria-describedby="emailHelp" placeholder="type your password again">
+
+  </div><br>
+
+
+  <center><button type="submit" class="btn btn-primary">Register</button></center>
+ <div class="container signin">
+    <p>Already have an account? <a href="{% url 'login' %}">LOGIN</a>here</p>
+  </div>
+
+</form>
+<div>
+  {% for message in messages %}
+  <h4>{{message}}</h4>
+  {% endfor %}
+</div>
+
+
+        </div>
+
+
+
+
+
+
+    </div>
+
+</body>
+
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<body class="m-10">
+
+<div class="row justify-content-center">
+
+       <div class="col-md-6">
+
+<form action="login" method="post"enctype="multipart/form-data" class="p-3 shadow">
+  <div class="form-group">
+      {% csrf_token %}
+       <label for="username">&nbsp;&nbsp;<strong>Username :</strong></label>
+    <input type="text"  name="username" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Enter username here">
+<!--    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+  </div><br>
+    <div class="form-group">
+
+      <label for="password">&nbsp;&nbsp;<strong>Password :</strong></label>
+    <input type="password"  name="password" class="form-control" id="password" aria-describedby="emailHelp" placeholder="write your name here">
+
+  </div><br>
+     <center><button type="submit" class="btn btn-primary">Login</button></center>
+     <center><p>New user?<a href="{% url 'register' %}">Register</a>here</p></center>
+
+
+</form>
+
+
+
+        </div>
+</div>
+</body>
+{% endblock %}

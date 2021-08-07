@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="card" xmlns="http://www.w3.org/1999/html">
+    <div class="card-header">
+        <center><h1 class="card-title">Blog Update</h1></center>
+</div>
+    <div class="card-body">
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+     <button type="submit" class="btn btn-success">Update</button>
+
+</form>
+    </div>
+</div>
+{% endblock %}

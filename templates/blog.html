@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<body class="m-10">
+
+<div class="row justify-content-center">
+
+       <div class="col-md-6">
+
+<form method="POST" enctype="multipart/form-data" class="p-3 shadow">
+  <div class="form-group">
+      {% csrf_token %}
+      <label for="exampleInputTITLE">&nbsp;&nbsp;<strong>Blog Title :</strong></label>
+    <input type="text"  name="name" class="form-control" id="exampleInputname" aria-describedby="emailHelp" placeholder="Enter blog title here">
+<!--    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+  </div><br>
+   <div class="form-group">
+
+       <label for="exampleInputTITLE">&nbsp;&nbsp;<strong>Content :</strong></label>
+     <textarea  name="desc"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="add content of your blog"></textarea>
+
+  </div><br>
+  <div class="form-group">
+
+      <label for="exampleInputTITLE">&nbsp;&nbsp;<strong>Upload Image :</strong></label>
+    <input type="file"  name="img" class="form-control" id="exampleInputimage" aria-describedby="emailHelp" placeholder="Add image here">
+
+  </div><br>
+  <div class="form-group">
+
+      <label for="exampleInputTITLE">&nbsp;&nbsp;<strong>Author/Username :</strong></label>
+    <input type="Text"  name="auth" class="form-control" id="exampleInputauthor" aria-describedby="emailHelp" placeholder="write your username here">
+
+  </div><br>
+  <div class="form-group">
+
+      <label for="exampleInputDate">&nbsp;&nbsp;<strong>Date :</strong></label>
+    <input type="date"  name="date" class="form-control" id="exampleInputDate" aria-describedby="emailHelp" placeholder="Enter date here">
+
+  </div><br>
+
+  <button type="submit" class="btn btn-primary">Submit</button>&nbsp;&nbsp;&nbsp;
+
+
+</form>
+
+
+
+        </div>
+
+
+<div class="col-md-5">
+           <u> <b><center><h1 STYLE="color:black;">{{user}}&nbsp;&nbsp;&nbsp;BLOG LIST</h1></center></b></u>
+            {% for i in bl %}
+            <div class="shadow card">
+
+            <div class="card-body">
+                <b><h3 class="card-title">{{i.date}}</h3></b>
+                <p><b>Blog:&nbsp;&nbsp;&nbsp;{{i.name}}</b></p>
+                <p><b>{{i.desc|truncatewords:27}}</b></p>
+                <a class="btn btn-success" href="{% url 'update' i.id %}">Update</a>
+                 <a class="btn btn-danger" href="{% url 'delete' i.id %}">Delete</a>
+
+
+                <a class="btn btn-success" href="{% url 'blogdetail' i.id %}">view my blog</a>
+
+
+
+        </div>
+    </div>
+            <br>
+            {% endfor %}
+      </div>
+
+
+
+
+
+
+
+
+    </div>
+
+</body>
+
+{% endblock %}
